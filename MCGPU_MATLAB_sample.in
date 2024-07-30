@@ -1,0 +1,62 @@
+# >>>> INPUT FILE FOR MC-GPU v1.3 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+#[SECTION SIMULATION CONFIG v.2009-05-12]
+3276800000                          # TOTAL NUMBER OF HISTORIES, OR SIMULATION TIME IN SECONDS IF VALUE < 100000
+20220918                       # RANDOM SEED (ranecu PRNG)
+3                               # GPU NUMBER TO USE WHEN MPI IS NOT USED, OR TO BE AVOIDED IN MPI RUNS
+512                             # GPU THREADS PER CUDA BLOCK (multiple of 32)
+1000                             # SIMULATED HISTORIES PER GPU THREAD
+
+#[SECTION SOURCE v.2011-07-12]
+E:\318\SKS\MC\100kVp_0.5mmCu_8.0mmAI.spec  # X-RAY ENERGY SPECTRUM FILE
+10.752 -50.55 3.952             # SOURCE POSITION: X Y Z [cm]
+0.0   1.0    0.0                # SOURCE DIRECTION COSINES: U V W
+-1   -1                           # POLAR AND AZIMUTHAL APERTURES FOR THE FAN BEAM [degrees] (input negative to cover the whole detector)
+
+#[SECTION IMAGE DETECTOR v.2009-12-02]
+1                             # OUTPUT IMAGE TYPE? [1\2\3] (Raw, Ascii, Raw and Ascii)
+/mnt/no4/huangwenhui/MCGPU/318/projs/test/halfWater   # OUTPUT IMAGE FILE NAME
+256    418                      # NUMBER OF PIXELS IN THE IMAGE: Nx Nz
+43.008     70.208                      # IMAGE SIZE (width, height): Dx Dz [cm]
+114                           # SOURCE-TO-DETECTOR DISTANCE (detector set in front of the source, perpendicular to the initial direction)
+
+#[SECTION CT SCAN TRAJECTORY v.2011-10-25]
+10                              # NUMBER OF PROJECTIONS (beam must be perpendicular to Z axis, set to 1 for a single projection)
+10                            # ANGLE BETWEEN PROJECTIONS [degrees] (360/num_projections for full CT)
+0.0 3600.0                     # ANGLES OF INTEREST (projections outside the input interval will be skipped)
+61.3                            # SOURCE-TO-ROTATION AXIS DISTANCE (rotation radius, axis parallel to Z)
+0.0                            # VERTICAL TRANSLATION/ BETWEEN PROJECTIONS (HELICAL SCAN)
+
+# [SECTION DOSE DEPOSITION v.2012-12-12]
+NO                             # TALLY MATERIAL DOSE? [YES\NO] (electrons not transported, x-ray energy locally deposited at interaction)
+NO                             # TALLY 3D VOXEL DOSE? [YES\NO] (dose measured separately for each voxel)
+dose                 # OUTPUT VOXEL DOSE FILE NAME
+1  3                            # VOXEL DOSE ROI: X-index min max (first voxel has index 1)
+1  1                            # VOXEL DOSE ROI: Y-index min max
+1  2                            # VOXEL DOSE ROI: Z-index min max
+
+
+#[SECTION VOXELIZED GEOMETRY FILE v.2009-11-30]
+E:\318\SKS\MC\vox_vol_interconvert\runs\waterNew_100.vox      # VOXEL GEOMETRY FILE (penEasy 2008 format; .gz accepted)
+
+# [SECTION MATERIAL FILE LIST v.2009-11-30]
+.\material\air__5-120keV.mcgpu.gz                       # 1
+.\material\water__5-120keV.mcgpu.gz                     # 2
+.\material\bone_ICRP110__5-120keV.mcgpu.gz
+.\material\adipose_ICRP110__5-120keV.mcgpu.gz
+.\material\brain_ICRP110__5-120keV.mcgpu.gz
+.\material\blood_ICRP110__5-120keV.mcgpu.gz
+.\material\breast_75-25_Hammerstein__5-120keV.mcgpu.gz
+.\material\cartilage_ICRP110__5-120keV.mcgpu.gz
+.\material\connective_Woodard__5-120keV.mcgpu.gz
+.\material\glands_others_ICRP110__5-120keV.mcgpu.gz
+.\material\liver_ICRP110__5-120keV.mcgpu.gz
+.\material\lung_ICRP110__5-120keV.mcgpu.gz
+.\material\muscle_ICRP110__5-120keV.mcgpu.gz
+.\material\PMMA__5-120keV.mcgpu.gz
+.\material\red_marrow_Woodard__5-120keV.mcgpu.gz
+.\material\skin_ICRP110__5-120keV.mcgpu.gz
+.\material\soft_tissue_ICRP110__5-120keV.mcgpu.gz
+.\material\stomach_intestines_ICRP110__5-120keV.mcgpu.gz
+.\material\titanium__5-120keV.mcgpu.gz
+# >>>> END INPUT FILE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
