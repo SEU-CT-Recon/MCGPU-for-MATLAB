@@ -28,7 +28,7 @@ This added flexibility allows for more controlled and customized handling of sim
 
 示例脚本位于 ``` ./scripts/Scatter_simulation_demo.mlx ```，首先是要读取`.in`文件，若使用的是`MCGPU_MATLAB_sample.in`，`MATERIAL FILE LIST`模块中各个材料文件的路径需要改成正确的路径，其余的文件路径可通过代码修改。
 
-MCGPU 默认输出primary信号、康普顿散射、雷瑞散射以及多重散射，需要把后三者已经相加才能获取完整的散射信号，示例代码都在 ``` ./scripts/Scatter_simulation_demo.mlx ```中给出。
+MCGPU 默认输出primary信号、康普顿散射、雷瑞散射以及多重散射，需要把后三者相加才能获取完整的散射信号，示例代码都在 ``` ./scripts/Scatter_simulation_demo.mlx ```中给出。
 
 ## Authors 
 
