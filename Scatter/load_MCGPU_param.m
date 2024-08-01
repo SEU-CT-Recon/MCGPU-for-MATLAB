@@ -24,7 +24,11 @@ while ~contains(new_line, "SECTION SOURCE")
 end
 %% source parameters
 MCparam.file_name_espc = sscanf(fgetl_trimmed(fid), '%s');
-MCparam.spec = parse_spec_file(MCparam.file_name_espc);
+try
+    MCparam.spec = parse_spec_file(MCparam.file_name_espc);
+catch
+    disp('spec file not found, please reload in your script!');
+end
 MCparam.source_pos = sscanf(fgetl_trimmed(fid), '%f %f %f');
 MCparam.source_dir = sscanf(fgetl_trimmed(fid), '%f %f %f');
 MCparam.source_dir = MCparam.source_dir / norm(MCparam.source_dir);
